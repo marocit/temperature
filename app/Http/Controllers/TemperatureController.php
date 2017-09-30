@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Temperature;
+use App\Http\Resources\TemperatureCollection;
 
 class TemperatureController extends Controller
 {
