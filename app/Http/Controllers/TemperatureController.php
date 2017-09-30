@@ -11,7 +11,7 @@ class TemperatureController extends Controller
 {
     public function getTemperature()
     {
-        $temperature = Temperature::first();
+        $temperature = Temperature::latest()->first();
 
         return new Temp($temperature);
 
