@@ -22,6 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'] , function() {
     Route::get('/tasks', 'TaskController@getTasks')->name('getTasks');
     Route::get('temperature', 'TemperatureController@getTemperature')->name('getTemperature');
+    Route::post('temperature', 'TemperatureController@store');
 });
 
 /* Route::get('/test', function() {

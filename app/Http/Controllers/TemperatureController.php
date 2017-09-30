@@ -13,4 +13,15 @@ class TemperatureController extends Controller
 
         return new TemperatureCollection($temperature);
     }
+
+    public function store(Request $request)
+    {
+        $data = request()->validate([
+            'outside' => 'required'
+          ]);
+    
+          Temperature::create($data);
+    
+          return response('Saved', 200);
+    }
 }
