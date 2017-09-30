@@ -25,6 +25,8 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'] , function() {
     Route::post('temperature', 'TemperatureController@store');
 });
 
+Route::get('temperature2', 'TemperatureController@getTemperature')->name('getTemperature2');
+
 /* Route::get('/test', function() {
     $task = Task::first();
 

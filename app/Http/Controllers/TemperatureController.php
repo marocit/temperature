@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Temperature;
-use App\Http\Resources\TemperatureCollection;
+use App\Http\Resources\TemperatureCollection as TempCollect;
+use App\Http\Resources\Temp;
 
 class TemperatureController extends Controller
 {
@@ -12,7 +13,9 @@ class TemperatureController extends Controller
     {
         $temperature = Temperature::first();
 
-        return new TemperatureCollection($temperature);
+        return new Temp($temperature);
+
+        //return $temperature;
     }
 
     public function store(Request $request)
@@ -21,8 +24,8 @@ class TemperatureController extends Controller
             'outside' => 'required'
           ]);
     
-          Temperature::create($data);
-    
-          return response('Saved', 200);
+        Temperature::create($data);
+
+        return response('Saved', 200);
     }
 }
